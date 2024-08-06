@@ -3,10 +3,10 @@ include("connect.php");
 
 $sid = $_GET['sid'];
 
-// Validate and sanitize $sid
+
 $sid = mysqli_real_escape_string($conn, $sid);
 
-// Fetch student data
+
 $query = mysqli_query($conn, "SELECT * FROM student WHERE sid='$sid'");
 
 if (mysqli_num_rows($query) > 0) {

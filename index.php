@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +43,7 @@ echo $_COOKIE['password'];
      $select=mysqli_query($conn,"SELECT * FROM account where username='$username' AND password1='$password'");
      if(mysqli_num_rows($select))
      {
+        $_SESSION["username"] = $username;
 
         $_COOKIE['username']=$username;
         setcookie('username',$username,time() +1800);
